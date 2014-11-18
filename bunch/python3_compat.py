@@ -1,22 +1,13 @@
-import platform
-
-_IS_PYTHON_3 = (platform.version() >= '3')
-
-identity = lambda x : x
+''' python 3 compatibility function '''
+import six
 
 # u('string') replaces the forwards-incompatible u'string'
-if _IS_PYTHON_3:
-    u = identity
+if six.PY3:
+    u = lambda x : x
 else:
     import codecs
     def u(string):
-        return codecs.unicode_escape_decode(string)[0]
+       ''' return a unicode string in python 2 '''
+       return codecs.unicode_escape_decode(string)[0]
 
-# dict.iteritems(), dict.iterkeys() is also incompatible
-if _IS_PYTHON_3:
-    iteritems = dict.items
-    iterkeys  = dict.keys
-else:
-    iteritems = dict.iteritems
-    iterkeys = dict.iterkeys
 

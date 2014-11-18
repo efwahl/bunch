@@ -22,12 +22,13 @@ setup(
     description      = "A dot-accessible dictionary (a la JavaScript objects)",
     long_description = readme,
     url              = "http://github.com/dsc/bunch",
-    
+
     author           = "David Schoonover",
     author_email     = "dsc@less.ly",
-    
+
     packages         = ['bunch',],
-    
+    install_requires = ['six'],
+
     keywords         = ['bunch', 'dict', 'mapping', 'container', 'collection'],
     classifiers      = [
         'Development Status :: 5 - Production/Stable',
